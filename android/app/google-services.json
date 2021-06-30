@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "907421692200",
+    "project_id": "learntime-d9ef5",
+    "storage_bucket": "learntime-d9ef5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907421692200:android:15badd55c761f11b5da01d",
+        "android_client_info": {
+          "package_name": "com.dholasain.learn_time"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907421692200-g7pi4vieir79ppea2h3kv5cj87g5do5m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYwq3zn6ZA52AuSak51u4zxP4YS9p7p10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907421692200-g7pi4vieir79ppea2h3kv5cj87g5do5m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
