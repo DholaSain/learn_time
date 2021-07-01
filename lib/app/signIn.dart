@@ -4,15 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn_time/Services/auth.dart';
 
 class SignInPage extends StatelessWidget {
-  SignInPage({required this.onSignIn, required this.auth});
+  SignInPage({
+    required this.auth,
+  });
 
-  final Function(UserDetail?) onSignIn;
   final AuthBase auth;
 
   Future<void> _signinAnonymously() async {
     try {
-      UserDetail? user = await auth.signInAnonymously();
-      onSignIn(user);
+      await auth.signInAnonymously();
     } catch (e) {
       print(e.toString());
     }
