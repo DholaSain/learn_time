@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class UserDetail {
   UserDetail({required this.uid});
@@ -16,7 +17,6 @@ class Auth implements AuthBase {
   final _firebaseAuth = FirebaseAuth.instance;
 
   UserDetail? _userFromFirebase(User? user) {
-    // ignore: unnecessary_null_comparison
     if (user == null) {
       return null;
     }
@@ -38,6 +38,21 @@ class Auth implements AuthBase {
   Future<UserDetail?> signInAnonymously() async {
     final authResult = await _firebaseAuth.signInAnonymously();
     return _userFromFirebase(authResult.user!);
+  }
+
+  Future<UserDetail?> signInWithGoogle() async {
+    GoogleSignIn googleSignIn = GoogleSignIn();
+    GoogleSignInAccount? googleAccount = await googleSignIn.signIn();
+    if (googleAccount != null) {
+      GoogleSignInAuthentication googleAuth =
+          await googleAccount.authentication;
+      final authResult = await _firebaseAuth.signInWithCredential(
+        GoogleAuthProvider.credential(
+          idToken: googleAuth.idToken,
+          accessToken: googleAuth.accessToken,
+        ),
+      );
+    }
   }
 
   @override
